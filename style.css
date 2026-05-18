@@ -1,0 +1,59 @@
+h1{
+    font-size: 100px;
+    font-family: Garamond, serif;
+    color: #ffffff;
+    text-align: center;
+    background-image: url('New Project.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 200px 20px;
+    margin: 0 0 40px 0;
+}
+
+/* Navigation basique */
+.main-nav{
+    list-style:none;
+    padding:0;
+    margin:0.5rem 0 1.5rem 0;
+    display:flex;
+    gap:1rem;
+    justify-content:center;
+}
+.main-nav li a{
+    text-decoration:none;
+    color:#000;
+    padding:6px 10px;
+    border-radius:4px;
+}
+.main-nav li a:hover{
+    background: rgba(255,255,255,0.6);
+}
+
+/* Hero: texte et image côte à côte */
+.hero{
+    display:flex;
+    align-items:flex-start;
+    gap:20px;
+    max-width:1100px;
+    margin:0 auto;
+    padding:20px;
+    background: rgba(255,255,255,0.6);
+    border-radius:8px;
+}
+.hero-text{
+    flex:1 1 60%;
+}
+.hero-text p{
+    text-align:center;
+    margin:0;
+}
+.hero-image{
+    flex:0 0 300px;
+}
+.hero-image img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:6px;
+}
