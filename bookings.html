@@ -7,26 +7,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="index.html" class="brand">
-        <img src="images/logo.svg" alt="Sun Beach Palace logo" class="logo">
-        <span class="brand-name">Sun Beach Palace</span>
-      </a>
-
-      <nav class="primary-nav">
-        <ul class="main-nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="rooms.html">Rooms</a></li>
-          <li><a href="activities.html">Activities</a></li>
-          <li><a href="resto.html">Restaurants</a></li>
-          <li><a href="review.html">Review</a></li>
-        </ul>
-      </nav>
-
-      <a href="bookings.html" class="cta-button">Book Now</a>
-    </div>
+  <header>
+    <h1>Sun Beach Palace</h1>
+    <nav>
+      <ul class="main-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="bookings.html">Bookings</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="resto.html">Restaurants</a></li>
+        <li><a href="review.html">Review</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
@@ -36,43 +29,27 @@
         <h3>Choose your room</h3>
         <form id="booking-form">
           <div class="room-option">
-            <input type="radio" id="standard-room-2" name="room" value="Standard Room for 2" data-price="120" checked>
-            <label for="standard-room-2">
-              <strong>Standard Room for 2</strong>
-              <span>Cozy room for two with a queen bed, modern bathroom, and welcoming decor.</span>
+            <input type="radio" id="standard-room" name="room" value="Standard Room" data-price="120" checked>
+            <label for="standard-room">
+              <strong>Standard Room</strong>
+              <span>Comfortable room with queen bed, workspace, and modern bathroom.</span>
               <strong>$120 / night</strong>
             </label>
           </div>
           <div class="room-option">
-            <input type="radio" id="standard-room-4" name="room" value="Standard Room for 4" data-price="155">
-            <label for="standard-room-4">
-              <strong>Standard Room for 4</strong>
-              <span>Family-friendly standard room with two double beds and room for four guests.</span>
-              <strong>$155 / night</strong>
+            <input type="radio" id="deluxe-suite" name="room" value="Deluxe Suite" data-price="180">
+            <label for="deluxe-suite">
+              <strong>Deluxe Suite</strong>
+              <span>Spacious suite with lounge area and stunning views.</span>
+              <strong>$180 / night</strong>
             </label>
           </div>
           <div class="room-option">
-            <input type="radio" id="luxury-room-2" name="room" value="Luxury Room for 2" data-price="190">
-            <label for="luxury-room-2">
-              <strong>Luxury Room for 2</strong>
-              <span>Elegant room for two with premium bedding, seating area, and enhanced amenities.</span>
-              <strong>$190 / night</strong>
-            </label>
-          </div>
-          <div class="room-option">
-            <input type="radio" id="luxury-room-4" name="room" value="Luxury Room for 4" data-price="235">
-            <label for="luxury-room-4">
-              <strong>Luxury Room for 4</strong>
-              <span>Spacious luxury room with two beds, refined finishes, and extra comfort for four guests.</span>
-              <strong>$235 / night</strong>
-            </label>
-          </div>
-          <div class="room-option">
-            <input type="radio" id="suite" name="room" value="Suite" data-price="280">
-            <label for="suite">
-              <strong>Suite</strong>
-              <span>Premium suite with separate living space, large bathroom, and panoramic views.</span>
-              <strong>$280 / night</strong>
+            <input type="radio" id="family-suite" name="room" value="Family Suite" data-price="220">
+            <label for="family-suite">
+              <strong>Family Suite</strong>
+              <span>Large room with separate sleeping areas for families.</span>
+              <strong>$220 / night</strong>
             </label>
           </div>
           <div class="booking-fields">
