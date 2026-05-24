@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const items = [];
 
   function updateSummary() {
+    if (!paymentItems || !paymentTotal || !checkoutButton) {
+      return;
+    }
+
     if (items.length === 0) {
       paymentItems.textContent = 'No rooms added yet.';
       paymentTotal.textContent = '0';
@@ -30,32 +34,63 @@ document.addEventListener('DOMContentLoaded', function() {
     checkoutButton.disabled = total === 0;
   }
 
-  addToPayment.addEventListener('click', function() {
-    const selectedRoom = document.querySelector('input[name="room"]:checked');
-    const nights = Math.max(1, parseInt(nightsInput.value, 10) || 1);
-    const guests = Math.max(1, parseInt(guestsInput.value, 10) || 1);
+  if (addToPayment && nightsInput && guestsInput && checkoutButton && paymentItems && paymentTotal) {
+    addToPayment.addEventListener('click', function() {
+      const selectedRoom = document.querySelector('input[name="room"]:checked');
+      const nights = Math.max(1, parseInt(nightsInput.value, 10) || 1);
+      const guests = Math.max(1, parseInt(guestsInput.value, 10) || 1);
 
-    if (!selectedRoom) {
-      return;
-    }
+      if (!selectedRoom) {
+        return;
+      }
 
-    items.push({
-      name: selectedRoom.value,
-      price: Number(selectedRoom.dataset.price),
-      nights,
-      guests
+      items.push({
+        name: selectedRoom.value,
+        price: Number(selectedRoom.dataset.price),
+        nights,
+        guests
+      });
+
+      updateSummary();
     });
 
-    updateSummary();
-  });
+    checkoutButton.addEventListener('click', function() {
+      if (items.length === 0) {
+        return;
+      }
 
-  checkoutButton.addEventListener('click', function() {
-    if (items.length === 0) {
-      return;
-    }
+      alert('Thank you! Your fake payment summary has been recorded.');
+    });
+  }
 
-    alert('Thank you! Your fake payment summary has been recorded.');
-  });
+  const reservationForm = document.querySelector('.reservation-form');
+  if (reservationForm) {
+    reservationForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const name = reservationForm.querySelector('[name="name"]').value.trim();
+      const room = reservationForm.querySelector('[name="room"]').value.trim();
+      const datetime = reservationForm.querySelector('[name="datetime"]').value;
+      const people = reservationForm.querySelector('[name="people"]').value;
+      const notes = reservationForm.querySelector('[name="notes"]').value.trim();
+
+      if (!name || !room || !datetime || !people) {
+        alert('Please fill in all required reservation fields before sending.');
+        return;
+      }
+
+      alert(
+        'Reservation sent!\n' +
+        'Name: ' + name + '\n' +
+        'Room: ' + room + '\n' +
+        'Date and time: ' + datetime + '\n' +
+        'Number of people: ' + people +
+        (notes ? '\nNotes: ' + notes : '')
+      );
+
+      reservationForm.reset();
+    });
+  }
 
   updateSummary();
 });

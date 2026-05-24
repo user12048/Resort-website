@@ -1,21 +1,30 @@
 /* Header / navigation - redesigned for a more professional layout */
 :root{
-    --primary: #0077cc; /* brand blue */
-    --accent: #ff7a59;  /* warm accent */
-    --muted: #f4f7fb;   /* light background */
-    --bg: #ffffff;
-    --text: #0f1724;
-    --heading: #1f2937;
+    --primary: #b55a3b; /* warm terracotta */
+    --accent: #ff8d5c;  /* warm accent */
+    --muted: #fbefe5;   /* soft warm background */
+    --bg: #fff7f2;
+    --text: #4a3224;
+    --heading: #633f2e;
     --on-primary: #ffffff;
+}
+
+body{
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(180deg, #fff7f2 0%, #f3e1d4 100%);
+    color: var(--text);
+    min-height: 100vh;
 }
 
 .site-header{
     position: sticky;
     top: 0;
     z-index: 999;
-    background: rgba(255,255,255,0.96);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    background: rgba(255,248,244,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(181,90,59,0.12);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 .header-inner{
@@ -67,26 +76,33 @@
 
 .main-nav li a{
     text-decoration:none;
-    color:var(--text);
-    padding:8px 12px;
-    border-radius:8px;
-    transition: background 0.2s ease, color 0.2s ease;
+    color:#594031;
+    padding:10px 14px;
+    border-radius:999px;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
     font-weight:600;
 }
 
 .main-nav li a:hover{
-    /* subtle highlight on hover, keep text dark (not white) */
-    background: rgba(0,119,204,0.08); /* translucent primary */
+    background: rgba(255,141,92,0.15);
     color: var(--text);
+    transform: translateY(-1px);
 }
 
 .cta-button{
-    background: var(--accent);
+    background: var(--primary);
     color: var(--on-primary);
-    padding: 10px 16px;
-    border-radius: 8px;
+    padding: 12px 18px;
+    border-radius: 999px;
     text-decoration: none;
     font-weight:700;
+    box-shadow: 0 16px 30px rgba(181,90,59,0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 20px 35px rgba(181,90,59,0.24);
 }
 
 @media (max-width: 700px){
@@ -113,13 +129,16 @@ h2{
 }
 .main-nav li a{
     text-decoration:none;
-    color:var(--text);
-    padding:6px 10px;
-    border-radius:4px;
+    color:#594031;
+    padding:10px 14px;
+    border-radius:999px;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    font-weight:600;
 }
 .main-nav li a:hover{
-    background: rgba(0,119,204,0.08);
+    background: rgba(255,141,92,0.15);
     color: var(--text);
+    transform: translateY(-1px);
 }
 
 .restaurant-links{
@@ -137,14 +156,14 @@ h2{
 .restaurant-links ul li a{
     display:inline-block;
     padding:10px 18px;
-    background:#f2f2f2;
+    background:#f7dcc8;
     border-radius:6px;
     text-decoration:none;
-    color:#000;
+    color: #513426;
     font-weight:600;
 }
 .restaurant-links ul li a:hover{
-    background:#e0e0e0;
+    background:#f0c5b0;
 }
 
 .restaurant-name{
@@ -214,11 +233,34 @@ h2{
 }
 
 .booking-card,
-.payment-summary{
-    background: rgba(255,255,255,0.95);
+.payment-summary,
+.activity-card,
+.room-card,
+.review-card,
+.staff-card,
+.menu-row,
+.restaurant,
+.section-with-image,
+.menu-item{
+    background: rgba(255,247,242,0.95);
     border-radius: 18px;
     padding: 24px;
     box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+    border: 1px solid rgba(181,90,59,0.1);
+}
+
+.activity-card,
+.room-card,
+.review-card,
+.staff-card,
+.menu-item{
+    padding: 0;
+}
+
+.menu-row,
+.restaurant,
+.section-with-image{
+    padding: 24px;
 }
 
 .booking-card h3,
@@ -282,17 +324,18 @@ h2{
     width: 100%;
     padding: 14px 16px;
     border: none;
-    border-radius: 10px;
-    background: #0a7cff;
+    border-radius: 999px;
+    background: #d96a41;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
 #add-to-payment:hover,
 #checkout-button:hover{
-    background: #005fcc;
+    background: #b14e33;
+    transform: translateY(-1px);
 }
 
 #checkout-button:disabled{
@@ -303,9 +346,10 @@ h2{
 .payment-items{
     margin: 16px 0;
     min-height: 100px;
-    padding: 16px;
-    background: #f7f7f7;
-    border-radius: 14px;
+    padding: 20px;
+    background: #fff2eb;
+    border-radius: 20px;
+    border: 1px solid rgba(181,90,59,0.08);
 }
 
 .payment-item{
@@ -336,11 +380,11 @@ h2{
 }
 
 .activity-card{
-    background: rgba(255,255,255,0.95);
-    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(255,244,238,0.95), rgba(255,248,244,0.95));
+    border-radius: 22px;
     overflow: hidden;
-    box-shadow: 0 16px 32px rgba(0,0,0,0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 18px 36px rgba(0,0,0,0.09);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     display: flex;
     flex-direction: column;
 }
@@ -382,11 +426,11 @@ h2{
 }
 
 .room-card{
-    background: rgba(255,255,255,0.95);
-    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255,244,238,0.95), rgba(255,250,246,0.95));
+    border-radius: 22px;
     overflow: hidden;
-    box-shadow: 0 16px 32px rgba(0,0,0,0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 18px 36px rgba(0,0,0,0.09);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .room-card:hover{
@@ -478,7 +522,7 @@ h2{
     max-width:1100px;
     margin:0 auto;
     padding:20px;
-    background: rgba(255,255,255,0.6);
+    background: rgba(255,245,238,0.9);
     border-radius:8px;
 }
 .hero-text{
@@ -501,9 +545,9 @@ h2{
 .company-story p{
     max-width: 760px;
     margin: 0 auto 36px auto;
-    color: #475569;
-    font-size: 16px;
-    line-height: 1.8;
+    color: #5a412f;
+    font-size: 17px;
+    line-height: 1.9;
     text-align: center;
 }
 
@@ -604,10 +648,10 @@ h2{
     display: flex;
     align-items: center;
     gap: 30px;
-    background: var(--bg);
-    border-radius: 20px;
+    background: linear-gradient(180deg, #fff5f0, #f9ebe2);
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(15,23,36,0.08);
+    box-shadow: 0 22px 42px rgba(15,23,36,0.09);
 }
 
 .menu-row.reverse{
@@ -628,9 +672,9 @@ h2{
 
 .menu-text p{
     margin: 0;
-    color: #475569;
+    color: #5a412f;
     font-size: 16px;
-    line-height: 1.8;
+    line-height: 1.85;
 }
 
 .menu-image{
@@ -723,9 +767,10 @@ p{
     display: flex;
     align-items: center;
     gap: 18px;
-    background: rgba(242, 242, 242, 0.95);
-    padding: 18px 16px;
-    border-radius: 14px;
+    background: rgba(255, 238, 230, 0.95);
+    padding: 22px 18px;
+    border-radius: 18px;
+    border: 1px solid rgba(181,90,59,0.12);
 }
 
 .menu-item-content{
@@ -779,15 +824,17 @@ p{
 
 h3{
     display:block;
-    font-family:Lucida Handwriting, cursive;
-    font-size:24px;
-    font-weight:bold;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size:26px;
+    font-weight:700;
     margin-top:20px;
     text-align:center;
+    color: var(--heading);
 }
 h4{
-    font-family:Lucida Handwriting, cursive;
+    font-family: Georgia, 'Times New Roman', serif;
     font-size:20px;
-    font-weight:bold;
+    font-weight:700;
     margin-top:20px;
+    color: var(--heading);
 }
