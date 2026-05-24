@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
 
-      alert('Thank you! Your fake payment summary has been recorded.');
+      alert('Haha, you aren\'t actually getting a room.');
     });
   }
 
